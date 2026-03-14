@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stripe Style Clone</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f6f9fc;
+color:#0a2540;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:white;
+position:sticky;
+top:0;
+z-index:10;
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#635bff;
+}
+
+nav a{
+margin:0 14px;
+text-decoration:none;
+color:#0a2540;
+font-weight:500;
+}
+
+.nav-buttons button{
+margin-left:10px;
+padding:8px 16px;
+border-radius:6px;
+border:none;
+cursor:pointer;
+}
+
+.contact{
+background:#635bff;
+color:white;
+}
+
+/* HERO SECTION */
+
+.hero{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:120px 80px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero-left{
+max-width:600px;
+}
+
+.hero h1{
+font-size:52px;
+margin:20px 0;
+line-height:1.2;
+}
+
+.gradient{
+
+background:linear-gradient(90deg,#635bff,#ff7a18,#ff2a6d);
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+.subtitle{
+font-size:18px;
+color:#425466;
+margin-bottom:30px;
+}
+
+.cta{
+background:#635bff;
+color:white;
+padding:14px 26px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+/* HERO BACKGROUND */
+
+.hero-bg{
+
+position:absolute;
+
+right:-200px;
+top:-100px;
+
+width:600px;
+height:600px;
+
+background:linear-gradient(45deg,#ff7a18,#ff2a6d,#635bff);
+
+filter:blur(120px);
+
+opacity:.6;
+
+z-index:-1;
+
+}
+
+/* ROTATING ORBIT */
+
+.orbit-container{
+
+position:absolute;
+
+right:120px;
+top:80px;
+
+width:400px;
+height:400px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+.center-circle{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:linear-gradient(45deg,#635bff,#ff7a18);
+
+box-shadow:0 0 40px rgba(0,0,0,0.2);
+
+}
+
+.orbit{
+
+position:absolute;
+
+border:1px dashed rgba(0,0,0,0.15);
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+animation:rotate linear infinite;
+
+}
+
+.orbit1{
+width:200px;
+height:200px;
+animation-duration:10s;
+}
+
+.orbit2{
+width:280px;
+height:280px;
+animation-duration:16s;
+}
+
+.orbit3{
+width:360px;
+height:360px;
+animation-duration:22s;
+}
+
+.dot{
+
+width:16px;
+height:16px;
+
+background:#635bff;
+
+border-radius:50%;
+
+position:absolute;
+
+top:-8px;
+
+}
+
+@keyframes rotate{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* COMPANY TRAIN */
+
+.logo-section{
+
+overflow:hidden;
+white-space:nowrap;
+background:white;
+padding:40px 0;
+margin-top:80px;
+
+}
+
+.logo-track{
+
+display:inline-block;
+
+animation:scroll 25s linear infinite;
+
+}
+
+.logo-track span{
+
+display:inline-block;
+
+margin:0 60px;
+
+font-size:22px;
+font-weight:600;
+color:#425466;
+
+}
+
+@keyframes scroll{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
+/* SOLUTIONS */
+
+.solutions{
+
+text-align:center;
+padding:100px 80px;
+
+}
+
+.solutions h2{
+font-size:36px;
+}
+
+.grid{
+
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+
+}
+
+.card{
+
+background:white;
+
+padding:40px;
+
+border-radius:14px;
+
+width:280px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.1);
+
+}
+
+/* FEATURE SECTION */
+
+.feature{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+gap:80px;
+
+padding:120px 80px;
+
+}
+
+.payment-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+
+width:300px;
+
+}
+
+.details{
+
+margin-top:20px;
+
+color:#425466;
+
+}
+
+.feature-text{
+
+max-width:400px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+background:white;
+
+margin-top:80px;
+
+color:#777;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">stripe</div>
+
+<nav>
+
+<a href="#">Products</a>
+<a href="#">Solutions</a>
+<a href="#">Developers</a>
+<a href="#">Resources</a>
+<a href="#">Pricing</a>
+
+</nav>
+
+<div class="nav-buttons">
+
+<button>Sign in</button>
+<button class="contact">Contact sales</button>
+
+</div>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="hero-left">
+
+<p>Global GDP running on Stripe: 1.61%</p>
+
+<h1>
+
+Financial infrastructure to grow your  
+<span class="gradient">revenue</span>
+
+</h1>
+
+<p class="subtitle">
+
+Accept payments, offer financial services and implement custom revenue models —
+from your first transaction to your billionth.
+
+</p>
+
+<button class="cta">Request an invite</button>
+
+</div>
+
+
+<div class="orbit-container">
+
+<div class="center-circle"></div>
+
+<div class="orbit orbit1">
+<div class="dot"></div>
+</div>
+
+<div class="orbit orbit2">
+<div class="dot"></div>
+</div>
+
+<div class="orbit orbit3">
+<div class="dot"></div>
+</div>
+
+</div>
+
+<div class="hero-bg"></div>
+
+</section>
+
+
+
+<section class="logo-section">
+
+<div class="logo-track">
+
+<span>NVIDIA</span>
+<span>FIGMA</span>
+<span>VERCEL</span>
+<span>UBER</span>
+<span>ANTHROPIC</span>
+<span>OPENAI</span>
+<span>AMAZON</span>
+<span>FORD</span>
+
+<span>NVIDIA</span>
+<span>FIGMA</span>
+<span>VERCEL</span>
+<span>UBER</span>
+<span>ANTHROPIC</span>
+<span>OPENAI</span>
+<span>AMAZON</span>
+<span>FORD</span>
+
+</div>
+
+</section>
+
+
+
+<section class="solutions">
+
+<h2>Flexible solutions for every business model.</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Accept payments globally</h3>
+<p>Online and in person payments.</p>
+</div>
+
+<div class="card">
+<h3>Enable any billing model</h3>
+<p>Subscriptions and usage billing.</p>
+</div>
+
+<div class="card">
+<h3>Create card issuing program</h3>
+<p>Launch your own payment cards.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="feature">
+
+<div class="payment-card">
+
+<h3>Jackson Hot Yoga</h3>
+
+<p>Payment Successful</p>
+
+<div class="details">
+
+<p>Order: #2945467</p>
+<p>Total: $72.00</p>
+
+</div>
+
+</div>
+
+<div class="feature-text">
+
+<h2>Embed payments in your platform</h2>
+
+<p>
+
+Build a complete payment experience directly inside your product.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>© Stripe Style Clone</p>
+
+</footer>
+
+</body>
+
+</html>
